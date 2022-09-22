@@ -1,0 +1,256 @@
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Pale blue: hsl(225, 100%, 94%)
+- Bright blue: hsl(245, 75%, 52%)
+
+### Neutral
+
+- Very pale blue: hsl(225, 100%, 98%)
+- Desaturated blue: hsl(224, 23%, 55%)
+- Dark blue: hsl(223, 47%, 23%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Red Hat Display](https://fonts.google.com/specimen/Red+Hat+Display)
+- Weights: 500, 700, 900
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+:root {
+  /* Primary colors */
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  
+  /* Neutral colors */
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
+}
+
+* {
+  margin:0px;
+  padding: 0px;
+  text-decoration:none;
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: black;
+
+}
+
+body {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin:auto;
+  overflow-x: hidden;
+  text-align: center;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1rem;
+  background-color: var(--pale-blue);
+  z-index: 0;
+  }
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  justify-items: center;
+}
+
+.background-desktop {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.background-mobile {
+  position: absolute;
+  display: none;
+  top: 0px;
+}
+
+.container {
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color:white;
+  overflow: hidden;
+  margin: 4rem auto;
+}
+.image-box {
+  width: 100%;
+}
+.image {
+  width: 100%;
+  height: auto;
+
+}
+.sumary {
+  text-align: center;
+}
+.sumary h1 {
+  font-weight: 900;
+  padding: 2rem;
+}
+.sumary p {
+  color:var(--desaturated-blue);
+  padding: 0rem 3rem;
+  margin-bottom: 2rem;
+}
+
+.offer {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 15% 60% 25%;
+  grid-template-rows: 50% 50%;
+  background-color: var(--very-pale-blue);
+  margin:3rem;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.offer-icon {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.offer-plan {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self:self-start;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+.offer-price {
+  color:var(--desaturated-blue);
+  grid-column: 2;
+  grid-row: 2;
+  justify-self:self-start;
+  margin-left: 1rem;
+}
+.offer-change {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color:var(--bright-blue);
+  text-decoration: underline;
+}
+
+.offer-change:hover {
+  text-decoration: none;
+  opacity: 85%;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: column;
+  margin:3rem;
+}
+.payment-button {
+  background-color: var(--bright-blue);
+  border: none;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color:var(--very-pale-blue);
+  box-shadow: 0rem 1rem 2rem -1rem var(--bright-blue);
+  margin-bottom: 2rem;
+}
+.payment-button:hover {
+  opacity: 85%;
+}
+.cancel-button {
+  background-color: transparent;
+  border: none;
+  color:var(--desaturated-blue);
+  font-weight: 700;
+}
+.cancel-button:hover {
+  color:var(--dark-blue);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media only screen and (max-width: 720px) {
+
+  body {
+    width: 375px;
+    font-size: 0.875rem;
+    }
+
+  .background-desktop {
+    display: none;
+  }
+  .background-mobile {
+    display:flex;
+
+  }
+  
+  main {
+    display: flex;
+  }
+  .container {
+    width: 20rem;
+    margin-top: 3rem auto;
+  }
+
+  .sumary p {
+    color:var(--desaturated-blue);
+    padding: 0rem 2.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .offer {
+    margin:1rem 2rem;
+    padding: 1.2rem;
+  }
+  .offer-plan {
+    margin-left: 2rem;
+  }
+  .offer-price {
+    margin-left: 2rem;
+  }
+  .offer-change {
+    font-size: 0.8125rem;
+  }
+
+  .button-box {
+    margin:2rem 3rem;
+   }
+
+}
