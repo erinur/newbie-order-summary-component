@@ -35,6 +35,83 @@ The designs were created to the following widths:
 
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* HERE STARTS SPECIFIC CSS */
+
 :root {
   /* Primary colors */
   --pale-blue: hsl(225, 100%, 94%);
@@ -53,204 +130,192 @@ The designs were created to the following widths:
   box-sizing: border-box;
 }
 
-html {
-  display: flex;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: black;
-
-}
-
 body {
-  width: 1440px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin:auto;
-  overflow-x: hidden;
+  background-color: var(--very-pale-blue);
   text-align: center;
   font-family: 'Red Hat Display', sans-serif;
   font-size: 1rem;
-  background-color: var(--pale-blue);
-  z-index: 0;
+  color: var(--dark-blue);
   }
 
-header {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  justify-items: center;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: auto;
 }
 
+.background {
+  width: 100%;
+  z-index: 0;
+}
 .background-desktop {
   width: 100%;
-  height: auto;
+  height: 50%;
   position: absolute;
-  top: 0px;
-  left: 0px;
 }
 
 .background-mobile {
+  width: 100%;
+  height: 35%;
   position: absolute;
   display: none;
-  top: 0px;
 }
 
 .container {
-  width: 28rem;
+  max-width: 24rem;
+  min-width: 16rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: 1rem;
-  background-color:white;
+  align-items: center;
+  margin: 10vh auto;
+  z-index:1;
+  border-radius: 0.5rem;
   overflow: hidden;
-  margin: 4rem auto;
-}
-.image-box {
-  width: 100%;
-}
-.image {
-  width: 100%;
-  height: auto;
-
-}
-.sumary {
-  text-align: center;
-}
-.sumary h1 {
-  font-weight: 900;
-  padding: 2rem;
-}
-.sumary p {
-  color:var(--desaturated-blue);
-  padding: 0rem 3rem;
-  margin-bottom: 2rem;
+  background-color: white;
 }
 
-.offer {
-  display: grid;
-  margin: auto;
-  grid-template-columns: 15% 60% 25%;
-  grid-template-rows: 50% 50%;
-  background-color: var(--very-pale-blue);
-  margin:3rem;
-  padding: 1.2rem;
-  border-radius: 0.5rem;
-}
+  .image-box {
+    width: 100%;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
 
-.offer-icon {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-.offer-plan {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self:self-start;
-  font-weight: 700;
-  margin-left: 1rem;
-}
-.offer-price {
-  color:var(--desaturated-blue);
-  grid-column: 2;
-  grid-row: 2;
-  justify-self:self-start;
-  margin-left: 1rem;
-}
-.offer-change {
-  grid-column: 3;
-  grid-row: 1 / 3;
-  align-self: center;
-  text-align: right;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color:var(--bright-blue);
-  text-decoration: underline;
-}
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    grid-template-rows: repeat(3, 1fr);
+  }
+    .sumary {
+      width: 80%;
+    }
+      .sumary-title {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+      .sumary-paragraph {
+        margin-bottom: 2rem;
+        color: var(--desaturated-blue);
+      }
 
-.offer-change:hover {
-  text-decoration: none;
-  opacity: 85%;
-}
+    .offer {
+      width: 80%;
+      display: grid;
+      grid-template-columns: 20% 50% 30%;
+      background-color: var(--very-pale-blue);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+      .offer-icon {
+      align-self: center;
+      justify-self: center;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      }
+      .offer-plan {
+        align-self: center;
+        justify-self: left;
+        grid-column: 2;
+        grid-row: 1;
+        padding-left: 1rem;
+        font-weight: 700;
 
-.button-box {
-  display: flex;
-  flex-direction: column;
-  margin:3rem;
-}
-.payment-button {
-  background-color: var(--bright-blue);
-  border: none;
-  font-weight: 700;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  color:var(--very-pale-blue);
-  box-shadow: 0rem 1rem 2rem -1rem var(--bright-blue);
-  margin-bottom: 2rem;
-}
-.payment-button:hover {
-  opacity: 85%;
-}
-.cancel-button {
-  background-color: transparent;
-  border: none;
-  color:var(--desaturated-blue);
-  font-weight: 700;
-}
-.cancel-button:hover {
-  color:var(--dark-blue);
-}
+      }
+      .offer-price {
+        align-self: center;
+        justify-self: left;
+        grid-column: 2;
+        grid-row: 2;
+        padding-left: 1rem;
+        color: var(--desaturated-blue);
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+      }
+      .offer-change {
+        align-self: center;
+        justify-self: right;
+        grid-column: 3;
+        grid-row: 1 / 3;
+        text-decoration: underline;
+        font-weight: 700;
+        color: var(--bright-blue);
+      }
+      .offer-change:hover {
+        text-decoration: none;
+        opacity: 80%;
+        cursor: pointer;
+      }
 
-@media only screen and (max-width: 720px) {
+    .button-box{
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      font-weight: 700;
+    }
+      .payment-button {
+        border-radius: 0.5rem;
+        border: none;
+        padding:0.5rem;
+        font-weight: 700;
+        color: var(--very-pale-blue);
+        background-color: var(--bright-blue);
+        margin-bottom: 2rem;
+        box-shadow: 0rem 1rem 4rem -0.6rem var(--bright-blue);
+      }
+      .payment-button:hover {
+        opacity: 80%;
+        cursor: pointer;
+      }
+      .cancel-button {
+        background-color: transparent;
+        border: none;
+        margin-bottom: 2rem;
+        color: var(--desaturated-blue);
+      }
+      .cancel-button:hover {
+        color: var(--dark-blue);
+        cursor: pointer;
+      }
+
+      .attribution {
+        margin: 1rem auto;
+        margin-top: 0px;
+      }
+
+@media only screen and (max-width: 640px) {
 
   body {
-    width: 375px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     }
 
   .background-desktop {
     display: none;
   }
-  .background-mobile {
-    display:flex;
-
-  }
   
-  main {
+  .background-mobile {
     display: flex;
   }
-  .container {
-    width: 20rem;
-    margin-top: 3rem auto;
-  }
 
-  .sumary p {
-    color:var(--desaturated-blue);
-    padding: 0rem 2.6rem;
-    margin-bottom: 2rem;
-  }
-
-  .offer {
-    margin:1rem 2rem;
-    padding: 1.2rem;
-  }
-  .offer-plan {
-    margin-left: 2rem;
-  }
-  .offer-price {
-    margin-left: 2rem;
-  }
-  .offer-change {
-    font-size: 0.8125rem;
-  }
-
-  .button-box {
-    margin:2rem 3rem;
-   }
-
+      .sumary {
+        width: 80%;
+      }
+        .sumary-title {
+          font-size: 1.875rem;
+          margin-top: 1rem;
+        }
+  
+        .cancel-button {
+          margin-bottom: 1rem;
+        }
 }
